@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="./image-slot.js"></script>
+  <script async src="//www.instagram.com/embed.js"></script>
+  <style>
+    body { margin: 0; background: #080808; -webkit-font-smoothing: antialiased; }
+    ::selection { background: #00cc00; color: #000; }
+    a { color: #00cc00; text-decoration: none; }
+    a:hover { color: #33dd33; }
+  </style>
+</helmet>
+
+<div style="background:#080808;color:#f2f2f0;font-family:'Inter',sans-serif;min-height:100vh">
+
+  <header style="position:sticky;top:0;z-index:20;background:rgba(8,8,8,0.9);backdrop-filter:blur(10px);border-bottom:1px solid #1e1e1e;padding:22px clamp(20px,4vw,64px)">
+    <a href="index.html#campaigns" style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(242,242,240,0.6);font-weight:600">&#8592; All Case Studies</a>
+  </header>
+
+  <!-- HERO -->
+  <section style="padding:70px clamp(20px,4vw,64px) 0">
+    <div style="max-width:1000px;margin:0 auto">
+      <p style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,204,0,0.75);font-weight:600;margin:0 0 18px">Event Launch &middot; Creative Direction</p>
+      <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,9vw,6.5rem);line-height:0.92;text-transform:uppercase;margin:0 0 20px">Verde House</h1>
+      <p style="font-size:clamp(15px,1.6vw,19px);color:#c9c9c7;line-height:1.6;max-width:640px;margin:0 0 28px">A sold-out house party I built from a positioning insight, not a venue booking. I identified a gap in how Atlanta nightlife was being marketed, built the brand, ran the go-to-market alone, and turned a single night into a repeatable content engine.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px 20px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(242,242,240,0.45)">
+        <span>Role: Creative Director</span>
+        <span>&middot;</span>
+        <span>Apr 2026</span>
+        <span>&middot;</span>
+        <span>Personal / Production Company</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- COVER IMAGE + STATS -->
+  <section style="padding:32px clamp(20px,4vw,64px) 0">
+    <div style="max-width:1000px;margin:0 auto;display:flex;gap:48px;align-items:center;flex-wrap:wrap">
+      <div style="width:220px;flex-shrink:0">
+        <img src="public/verde_house_flyer.png" alt="Verde House flyer" style="width:100%;height:auto;display:block"/>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,auto);gap:28px 44px;flex:1;min-width:260px;border-top:1px solid #1e1e1e;border-left:1px solid #1e1e1e">
+        <sc-for list="{{ stats }}" as="stat" hint-placeholder-count="4">
+          <div style="display:flex;flex-direction:column;gap:8px;padding:20px 0 0 24px">
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:#00cc00;line-height:1">{{ stat.value }}</span>
+            <span style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(242,242,240,0.4)">{{ stat.label }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- BODY SECTIONS -->
+  <section style="padding:80px clamp(20px,4vw,64px)">
+    <div style="max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:64px">
+
+      <sc-for list="{{ narrative }}" as="block" hint-placeholder-count="6">
+        <div>
+          <p style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#00cc00;font-weight:600;margin:0 0 14px">{{ block.label }}</p>
+          <p style="font-size:15px;color:rgba(242,242,240,0.7);margin:0;line-height:1.75">{{ block.body }}</p>
+          <sc-if value="{{ block.tk }}" hint-placeholder-val="{{ false }}">
+            <p style="font-size:13px;color:rgba(242,242,240,0.4);margin:8px 0 0;font-style:italic">TK: {{ block.tk }}</p>
+          </sc-if>
+        </div>
+      </sc-for>
+
+      <!-- Execution media strip -->
+      <div>
+        <p style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#00cc00;font-weight:600;margin:0 0 8px">The Execution</p>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.6rem,3vw,2.2rem);text-transform:uppercase;margin:0 0 10px">The promo campaign, in the wild</h2>
+        <p style="font-size:14px;color:rgba(242,242,240,0.5);margin:0 0 24px">The organic content that built demand ahead of the door opening.</p>
+        <div style="display:flex;gap:14px;overflow-x:auto;padding-bottom:8px;-webkit-overflow-scrolling:touch">
+          <sc-for list="{{ videos }}" as="v" hint-placeholder-count="4">
+            <div style="flex-shrink:0;width:min(280px,80vw);zoom:0.65">
+              <div style="width:100%;min-width:326px">
+                <blockquote class="instagram-media" data-instgrm-permalink="{{ v.url }}" style="width:100%;margin:0"></blockquote>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <!-- Testimonials -->
+      <div>
+        <p style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#00cc00;font-weight:600;margin:0 0 8px">What People Said</p>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.6rem,3vw,2.2rem);text-transform:uppercase;margin:0 0 20px">Testimonials</h2>
+        <div style="display:flex;flex-direction:column;gap:32px">
+          <sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="2">
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <p style="font-size:14px;line-height:1.7;color:rgba(242,242,240,0.6);margin:0;font-style:italic">&ldquo;{{ t.quote }}&rdquo;</p>
+              <p style="font-size:12px;color:#f2f2f0;margin:0;font-weight:600">{{ t.name }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- NEXT -->
+  <footer style="padding:60px clamp(20px,4vw,64px);border-top:1px solid #1e1e1e;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
+    <a href="index.html#campaigns" style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(242,242,240,0.6);font-weight:600">&#8592; All Case Studies</a>
+    <a href="LinkedOut.html" style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#00cc00;font-weight:600">Next: LinkedOut &#8594;</a>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  stats = [
+    { value: "350+", label: "Guests, capacity crowd" },
+    { value: "500K+", label: "Views across promo content" },
+    { value: "20+", label: "Business inquiries generated" },
+    { value: "0", label: "Incidents. A safe, full-capacity room" },
+  ];
+
+  narrative = [
+    {
+      label: "Context",
+      body: "Atlanta's party scene had demand but a broken product. DJs were optimizing for one behavior (get girls to twerk) instead of the thing people actually wanted, which was to dance. The result was a market full of parties nobody was excited to go to. I saw an unmet need: a party built around the music people actually wanted to move to, positioned and marketed as exactly that.",
+      tk: null,
+    },
+    {
+      label: "Role",
+      body: "I owned this end to end, the way a founder owns a launch. Positioning and brand, DJ booking, venue, lighting and artistic direction, safety planning, vendor logistics, and every piece of marketing. When things broke last minute, including a conversation with police the night of, I owned the fix in real time.",
+      tk: null,
+    },
+    {
+      label: "Insight & Strategy",
+      body: "The positioning was the product: I branded and promoted it as a \"house party boiler room,\" stacking house music, house party, and EDM into one message so the audience knew exactly what they were showing up for before they arrived. Distribution ran on two tracks. Grassroots, high-touch outreach: my friend Matias and I went out to bars every week for a month straight, handing out flyers and pitching the party face to face, the kind of channel that doesn't scale but converts hard because it is a real conversation, not an impression. And organic content at volume: promo pieces, jokes, skits, and multiple flyer collaborations with the DJs, all pushing toward one boosted flagship video that became the highest-converting piece of the campaign. I also ran a brand-awareness play I'd now call top-of-funnel by design: I put the Verde House logo on content unrelated to the party itself, so the logo, not just the event, was what stuck. It built curiosity for the brand independent of any single post.",
+      tk: null,
+    },
+    {
+      label: "Execution",
+      body: "A month of daily grassroots promotion ran in parallel with a steady content cadence built for shareability, then culminated in one boosted flagship video that drove a visible spike in RSVPs. On the night itself, I ran the full production alone: DJ transitions, lighting, and a live safety issue when police showed up and required the party to shut down, which I handled calmly enough that the night ended clean, with no incidents and no one in trouble.",
+      tk: null,
+    },
+    {
+      label: "Results",
+      body: "350+ guests at a capacity crowd, 500,000+ views across promotional content, and 20+ business inquiries that came directly out of the momentum. Zero incidents. Everyone who came, danced, and everyone got home safe.",
+      tk: null,
+    },
+    {
+      label: "Reflection",
+      body: "This is the project that taught me marketing is a system, not a post: positioning decides who shows up, distribution decides how many, and product (the room itself) decides whether they come back. Running every function solo, brand, growth, ops, and safety, is what I'd bring to a marketing team on day one: I don't wait for a lane, I build the whole thing and watch the numbers move.",
+      tk: null,
+    },
+  ];
+
+  testimonials = [
+    { quote: "Every party should feel like that. Everyone needs to take notes from Nico.", name: "Attendee" },
+    { quote: "Best party of the year.", name: "Attendee" },
+    { quote: "Never danced so much in my life.", name: "Attendee" },
+    { quote: "You just had to be there.", name: "Attendee" },
+  ];
+
+  videos = [
+    { url: "https://www.instagram.com/reel/DXCxKKigmEP/?hl=en" },
+    { url: "https://www.instagram.com/reel/DXCNCz0jvxY/?hl=en" },
+    { url: "https://www.instagram.com/reel/DXChoqODgL6/?hl=en" },
+    { url: "https://www.instagram.com/reel/DW1TFD8jtDd/?hl=en" },
+    { url: "https://www.instagram.com/reel/DWudTVajhsS/?hl=en" },
+    { url: "https://www.instagram.com/reel/DWovINdjl_r/?hl=en" },
+    { url: "https://www.instagram.com/reel/DWL_rLTDuYK/?hl=en" },
+    { url: "https://www.instagram.com/reel/DVzkhzvDms2/?hl=en" },
+  ];
+
+  reprocessEmbeds() {
+    if (window.instgrm && window.instgrm.Embeds) window.instgrm.Embeds.process();
+  }
+
+  componentDidMount() { this.reprocessEmbeds(); }
+  componentDidUpdate() { this.reprocessEmbeds(); }
+
+  renderVals() {
+    return { stats: this.stats, narrative: this.narrative, testimonials: this.testimonials, videos: this.videos };
+  }
+}
+
+</script>
+</body>
+</html>

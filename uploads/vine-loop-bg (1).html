@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vine Loop Background</title>
+<style>
+  :root{
+    --bg:#050705;
+    --vine-dim:#1c6b39;
+    --vine-bright:#57e884;
+    --leaf:#4fe07a;
+    --dur:13s;
+  }
+  html,body{
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
+    background:var(--bg);
+    overflow:hidden;
+  }
+  .vine-bg{
+    position:fixed;
+    inset:0;
+    width:100vw;
+    height:100vh;
+    display:block;
+  }
+  .vine{
+    fill:none;
+    stroke:url(#vineGradient);
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    stroke-dasharray:100;
+    stroke-dashoffset:100;
+    opacity:0;
+    filter:url(#vineGlow);
+    animation:drawVine var(--dur) ease-in-out infinite;
+  }
+  .leaf{
+    fill:var(--leaf);
+    opacity:0;
+    filter:url(#vineGlow);
+    transform-box:fill-box;
+    transform-origin:0px 0px;
+    animation:pulseLeaf var(--dur) ease-in-out infinite;
+  }
+
+  @keyframes drawVine{
+    0%   { stroke-dashoffset:100; opacity:0; }
+    6%   { opacity:.88; }
+    42%  { stroke-dashoffset:0;   opacity:.88; }
+    58%  { stroke-dashoffset:0;   opacity:.88; }
+    94%  { stroke-dashoffset:100; opacity:0; }
+    100% { stroke-dashoffset:100; opacity:0; }
+  }
+
+  @keyframes pulseLeaf{
+    0%, 36% { opacity:0; transform:scale(0); }
+    46%     { opacity:.92; transform:scale(1); }
+    54%     { opacity:.92; transform:scale(1); }
+    64%, 100%{ opacity:0; transform:scale(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .vine, .leaf{ animation:none; opacity:.22; stroke-dashoffset:0; transform:scale(1); }
+  }
+</style>
+</head>
+<body>
+  <svg class="vine-bg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="vineGradient" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0%"  stop-color="var(--vine-dim)"/>
+        <stop offset="100%" stop-color="var(--vine-bright)"/>
+      </linearGradient>
+      <filter id="vineGlow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="2.4" result="blur"/>
+        <feMerge>
+          <feMergeNode in="blur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+    <g>
+    <path d="M 1533.1,-30.0 Q 1542.9,78.4 1544.0,132.7 Q 1545.1,186.9 1535.6,225.9 Q 1526.1,264.9 1518.1,312.5 Q 1510.2,360.2 1529.9,421.5 L 1549.6,482.8" pathLength="100" stroke-width="6.2" class="vine" style="animation-delay:2.97s"/>
+    <path d="M 1630.0,868.9 Q 1554.3,893.5 1513.9,890.3 Q 1473.5,887.1 1444.9,869.0 Q 1416.3,850.8 1377.1,819.9 Q 1337.8,789.0 1349.9,787.0 Q 1361.9,785.0 1359.3,793.1 Q 1356.7,801.2 1349.9,805.0 Q 1343.1,808.9 1336.1,807.2 Q 1329.2,805.6 1325.6,800.2 Q 1322.0,794.8 1323.0,789.0 Q 1324.0,783.3 1328.1,780.2 Q 1332.2,777.1 1336.7,777.7 Q 1341.1,778.2 1343.5,781.2 Q 1345.9,784.2 1345.5,787.3 Q 1345.2,790.4 1343.2,792.0 Q 1341.2,793.5 1339.3,793.1 Q 1337.5,792.7 1336.9,791.4 Q 1336.4,790.2 1337.1,789.6 L 1337.8,789.0" pathLength="100" stroke-width="4.9" class="vine" style="animation-delay:0.46s"/>
+    <path d="M 193.3,930.0 Q 278.8,858.4 313.7,827.8 Q 348.5,797.2 351.9,749.8 Q 355.3,702.4 374.7,636.6 Q 394.1,570.9 395.7,513.9 Q 397.2,456.8 379.0,421.5 Q 360.7,386.1 329.9,328.5 L 299.1,271.0" pathLength="100" stroke-width="4.1" class="vine" style="animation-delay:0.19s"/>
+    <path d="M 1388.9,930.0 Q 1450.6,871.0 1480.9,831.8 Q 1511.2,792.7 1546.5,781.8 Q 1581.9,770.8 1618.5,736.4 Q 1655.0,702.0 1716.8,672.9 Q 1778.5,643.9 1770.7,657.2 Q 1762.9,670.5 1756.5,658.2 Q 1750.1,645.8 1756.2,634.6 Q 1762.4,623.4 1774.0,622.3 Q 1785.6,621.2 1792.3,629.5 Q 1799.0,637.7 1796.2,646.8 Q 1793.3,655.8 1785.3,658.1 Q 1777.2,660.5 1771.7,655.8 Q 1766.2,651.0 1767.0,644.9 Q 1767.8,638.7 1772.5,636.6 Q 1777.1,634.5 1780.4,636.8 Q 1783.7,639.1 1783.4,642.0 Q 1783.2,645.0 1781.3,645.5 Q 1779.4,646.1 1779.0,645.0 L 1778.5,643.9" pathLength="100" stroke-width="7.2" class="vine" style="animation-delay:1.21s"/>
+    <path d="M 256.4,-30.0 Q 371.6,41.0 421.9,44.3 Q 472.2,47.6 531.0,38.2 Q 589.8,28.8 618.0,-4.5 Q 646.3,-37.7 655.9,-82.3 Q 665.5,-126.8 697.4,-189.8 Q 729.3,-252.8 734.9,-238.6 Q 740.6,-224.5 730.2,-225.4 Q 719.9,-226.3 713.3,-233.3 Q 706.8,-240.2 706.6,-249.0 Q 706.4,-257.7 711.6,-263.7 Q 716.8,-269.7 723.8,-270.6 Q 730.9,-271.4 736.0,-267.8 Q 741.1,-264.1 742.2,-258.7 Q 743.3,-253.3 740.8,-249.4 Q 738.4,-245.4 734.6,-244.5 Q 730.8,-243.5 728.2,-245.2 Q 725.6,-246.8 725.2,-249.1 Q 724.8,-251.4 726.0,-252.6 Q 727.1,-253.7 728.2,-253.2 L 729.3,-252.8" pathLength="100" stroke-width="5.7" class="vine" style="animation-delay:2.64s"/>
+    <path d="M 1630.0,214.3 Q 1544.1,200.0 1508.0,202.2 Q 1471.8,204.3 1446.2,225.5 Q 1420.5,246.7 1373.3,278.7 Q 1326.0,310.6 1292.4,339.4 Q 1258.8,368.1 1237.6,405.7 Q 1216.5,443.4 1191.3,472.8 L 1166.1,502.2" pathLength="100" stroke-width="5.8" class="vine" style="animation-delay:2.09s"/>
+    <path d="M -30.0,113.7 Q 72.2,62.3 101.6,37.0 Q 131.0,11.8 182.2,-27.8 Q 233.3,-67.4 268.6,-130.7 Q 304.0,-194.0 332.0,-218.8 Q 360.1,-243.6 416.3,-274.2 Q 472.4,-304.8 502.5,-328.1 Q 532.6,-351.3 530.3,-337.3 Q 528.0,-323.3 519.4,-330.0 Q 510.8,-336.7 510.0,-346.7 Q 509.2,-356.8 515.5,-363.5 Q 521.7,-370.3 530.0,-370.2 Q 538.4,-370.1 543.4,-364.6 Q 548.3,-359.0 547.6,-352.4 Q 546.9,-345.9 542.2,-342.5 Q 537.6,-339.2 532.8,-340.3 Q 528.0,-341.4 526.2,-345.0 Q 524.3,-348.6 525.6,-351.5 Q 526.9,-354.5 529.2,-355.0 Q 531.5,-355.5 532.7,-354.3 Q 533.8,-353.2 533.2,-352.2 L 532.6,-351.3" pathLength="100" stroke-width="4.1" class="vine" style="animation-delay:2.57s"/>
+    <path d="M 1302.4,-30.0 Q 1251.7,59.9 1229.1,106.5 Q 1206.6,153.1 1197.9,191.4 Q 1189.2,229.8 1169.8,293.6 Q 1150.4,357.4 1141.8,342.0 Q 1133.3,326.6 1146.0,326.3 Q 1158.8,326.0 1167.4,334.0 Q 1175.9,342.0 1176.3,352.8 Q 1176.8,363.5 1170.2,370.6 Q 1163.6,377.8 1154.9,378.2 Q 1146.2,378.6 1140.5,373.4 Q 1134.8,368.2 1134.6,361.5 Q 1134.3,354.8 1138.3,350.6 Q 1142.3,346.5 1147.0,346.6 Q 1151.7,346.6 1154.2,349.4 Q 1156.7,352.3 1156.2,355.1 Q 1155.8,357.9 1154.0,358.6 Q 1152.1,359.4 1151.3,358.4 L 1150.4,357.4" pathLength="100" stroke-width="5.2" class="vine" style="animation-delay:0.09s"/>
+    <path d="M -30.0,780.9 Q 55.8,793.1 109.8,827.4 Q 163.8,861.7 227.8,892.0 Q 291.9,922.3 346.8,965.6 Q 401.7,1008.9 473.3,1003.8 Q 544.9,998.7 577.9,1001.1 Q 610.8,1003.5 681.6,1003.7 L 752.3,1003.8" pathLength="100" stroke-width="6.9" class="vine" style="animation-delay:2.96s"/>
+    <path d="M 211.7,930.0 Q 83.7,943.8 43.3,981.5 Q 2.9,1019.2 -9.3,1058.4 Q -21.5,1097.6 -62.5,1137.4 Q -103.5,1177.2 -118.5,1241.6 Q -133.6,1306.1 -140.3,1291.9 Q -147.0,1277.8 -133.9,1279.0 Q -120.9,1280.1 -114.3,1290.2 Q -107.7,1300.3 -111.3,1310.8 Q -114.9,1321.2 -124.3,1324.5 Q -133.7,1327.7 -141.2,1322.8 Q -148.7,1317.9 -149.3,1310.1 Q -149.9,1302.2 -144.8,1297.6 Q -139.7,1293.0 -134.0,1294.1 Q -128.2,1295.3 -126.2,1299.7 Q -124.2,1304.0 -126.1,1307.3 Q -128.0,1310.6 -130.8,1310.7 Q -133.6,1310.9 -134.5,1309.2 Q -135.5,1307.5 -134.5,1306.8 L -133.6,1306.1" pathLength="100" stroke-width="7.4" class="vine" style="animation-delay:1.28s"/>
+    <path d="M 1630.0,848.5 Q 1584.5,947.3 1543.2,1003.9 Q 1501.9,1060.5 1456.2,1080.5 Q 1410.6,1100.4 1350.8,1130.3 Q 1291.0,1160.2 1255.8,1217.6 Q 1220.7,1275.0 1216.6,1314.4 L 1212.4,1353.8" pathLength="100" stroke-width="4.6" class="vine" style="animation-delay:1.85s"/>
+    <path d="M -30.0,703.6 Q -23.7,769.7 -47.1,807.9 Q -70.5,846.1 -76.0,895.2 Q -81.5,944.3 -127.4,997.3 Q -173.3,1050.3 -180.7,1086.9 Q -188.2,1123.5 -194.4,1110.9 Q -200.5,1098.2 -188.6,1099.2 Q -176.6,1100.3 -170.7,1109.6 Q -164.8,1118.9 -168.4,1128.4 Q -172.0,1137.8 -180.7,1140.4 Q -189.5,1142.9 -196.1,1138.0 Q -202.6,1133.1 -202.6,1125.9 Q -202.5,1118.6 -197.4,1114.9 Q -192.3,1111.2 -187.3,1112.9 Q -182.2,1114.5 -180.9,1118.7 Q -179.5,1123.0 -181.7,1125.7 Q -183.9,1128.4 -186.5,1128.1 Q -189.0,1127.8 -189.6,1126.1 Q -190.1,1124.5 -189.2,1124.0 L -188.2,1123.5" pathLength="100" stroke-width="4.9" class="vine" style="animation-delay:0.88s"/>
+    <path d="M 107.6,-30.0 Q 64.5,48.4 26.1,85.7 Q -12.3,123.1 -47.7,142.4 Q -83.1,161.8 -123.3,168.3 Q -163.5,174.8 -156.5,161.8 Q -149.5,148.7 -144.0,156.1 Q -138.6,163.5 -138.8,172.0 Q -139.0,180.4 -144.0,186.4 Q -148.9,192.4 -155.8,193.9 Q -162.6,195.4 -168.3,192.6 Q -174.0,189.8 -176.3,184.7 Q -178.7,179.7 -177.5,174.9 Q -176.4,170.2 -173.0,167.7 Q -169.7,165.3 -166.2,165.5 Q -162.8,165.7 -160.8,167.7 Q -158.9,169.7 -159.0,171.9 Q -159.0,174.0 -160.2,174.9 Q -161.5,175.9 -162.5,175.3 L -163.5,174.8" pathLength="100" stroke-width="4.3" class="vine" style="animation-delay:2.09s"/>
+    <path d="M 1352.3,-30.0 Q 1359.9,64.0 1343.8,94.2 Q 1327.7,124.5 1298.8,172.6 Q 1270.0,220.8 1247.4,253.5 Q 1224.7,286.2 1182.0,342.3 Q 1139.3,398.4 1138.5,384.2 Q 1137.7,370.1 1148.0,375.3 Q 1158.2,380.4 1160.7,390.7 Q 1163.1,401.0 1157.3,408.7 Q 1151.5,416.4 1142.8,416.9 Q 1134.0,417.3 1128.7,411.5 Q 1123.4,405.7 1124.4,398.9 Q 1125.4,392.0 1130.6,388.9 Q 1135.7,385.8 1140.5,387.6 Q 1145.4,389.4 1146.6,393.4 Q 1147.9,397.4 1146.0,400.2 Q 1144.0,402.9 1141.5,402.8 Q 1139.0,402.7 1138.3,401.2 Q 1137.5,399.7 1138.4,399.1 L 1139.3,398.4" pathLength="100" stroke-width="7.4" class="vine" style="animation-delay:0.40s"/>
+    <path d="M 1630.0,699.9 Q 1618.2,631.3 1575.3,597.6 Q 1532.3,563.9 1493.9,556.9 Q 1455.5,549.9 1419.1,570.7 L 1382.7,591.5" pathLength="100" stroke-width="5.4" class="vine" style="animation-delay:3.06s"/>
+    </g>
+    <g>
+    <path d="M 0,0 Q 8.4,-10.6 26.2,0 Q 8.4,10.6 0,0 Z" class="leaf" transform="translate(1473.5,887.1) rotate(-237.6)" style="animation-delay:0.55s"/>
+    <path d="M 0,0 Q 6.6,-8.9 20.6,0 Q 6.6,8.9 0,0 Z" class="leaf" transform="translate(1416.3,850.8) rotate(-213.2)" style="animation-delay:0.60s"/>
+    <path d="M 0,0 Q 9.1,-11.1 28.4,0 Q 9.1,11.1 0,0 Z" class="leaf" transform="translate(1341.1,778.2) rotate(-53.8)" style="animation-delay:1.02s"/>
+    <path d="M 0,0 Q 8.8,-11.3 27.4,0 Q 8.8,11.3 0,0 Z" class="leaf" transform="translate(1337.5,792.7) rotate(-114.3)" style="animation-delay:1.21s"/>
+    <path d="M 0,0 Q 7.0,-12.8 22.0,0 Q 7.0,12.8 0,0 Z" class="leaf" transform="translate(1336.4,790.2) rotate(-41.4)" style="animation-delay:1.26s"/>
+    <path d="M 0,0 Q 8.1,-11.9 25.2,0 Q 8.1,11.9 0,0 Z" class="leaf" transform="translate(348.5,797.2) rotate(24.3)" style="animation-delay:0.42s"/>
+    <path d="M 0,0 Q 6.7,-8.7 20.8,0 Q 6.7,8.7 0,0 Z" class="leaf" transform="translate(397.2,456.8) rotate(-155.2)" style="animation-delay:0.75s"/>
+    <path d="M 0,0 Q 6.8,-11.2 21.2,0 Q 6.8,11.2 0,0 Z" class="leaf" transform="translate(1750.1,645.8) rotate(-177.1)" style="animation-delay:1.53s"/>
+    <path d="M 0,0 Q 7.7,-12.7 24.1,0 Q 7.7,12.7 0,0 Z" class="leaf" transform="translate(1799.0,637.7) rotate(119.1)" style="animation-delay:1.66s"/>
+    <path d="M 0,0 Q 7.7,-12.6 24.0,0 Q 7.7,12.6 0,0 Z" class="leaf" transform="translate(1767.8,638.7) rotate(-12.4)" style="animation-delay:1.84s"/>
+    <path d="M 0,0 Q 9.8,-12.4 30.7,0 Q 9.8,12.4 0,0 Z" class="leaf" transform="translate(1777.1,634.5) rotate(-73.4)" style="animation-delay:1.89s"/>
+    <path d="M 0,0 Q 9.4,-8.4 29.3,0 Q 9.4,8.4 0,0 Z" class="leaf" transform="translate(1783.7,639.1) rotate(-25.7)" style="animation-delay:1.93s"/>
+    <path d="M 0,0 Q 7.8,-8.1 24.3,0 Q 7.8,8.1 0,0 Z" class="leaf" transform="translate(1783.2,645.0) rotate(45.7)" style="animation-delay:1.98s"/>
+    <path d="M 0,0 Q 8.8,-12.6 27.5,0 Q 8.8,12.6 0,0 Z" class="leaf" transform="translate(646.3,-37.7) rotate(11.0)" style="animation-delay:2.81s"/>
+    <path d="M 0,0 Q 9.8,-12.5 30.6,0 Q 9.8,12.5 0,0 Z" class="leaf" transform="translate(740.6,-224.5) rotate(132.8)" style="animation-delay:2.94s"/>
+    <path d="M 0,0 Q 10.6,-11.3 33.2,0 Q 10.6,11.3 0,0 Z" class="leaf" transform="translate(706.4,-257.7) rotate(-35.8)" style="animation-delay:3.07s"/>
+    <path d="M 0,0 Q 9.3,-12.9 29.1,0 Q 9.3,12.9 0,0 Z" class="leaf" transform="translate(716.8,-269.7) rotate(-112.1)" style="animation-delay:3.11s"/>
+    <path d="M 0,0 Q 9.3,-10.2 29.1,0 Q 9.3,10.2 0,0 Z" class="leaf" transform="translate(743.3,-253.3) rotate(145.8)" style="animation-delay:3.24s"/>
+    <path d="M 0,0 Q 10.4,-13.5 32.4,0 Q 10.4,13.5 0,0 Z" class="leaf" transform="translate(730.8,-243.5) rotate(117.6)" style="animation-delay:3.33s"/>
+    <path d="M 0,0 Q 10.8,-8.9 33.7,0 Q 10.8,8.9 0,0 Z" class="leaf" transform="translate(725.6,-246.8) rotate(-205.6)" style="animation-delay:3.37s"/>
+    <path d="M 0,0 Q 10.9,-10.5 33.9,0 Q 10.9,10.5 0,0 Z" class="leaf" transform="translate(1420.5,246.7) rotate(194.8)" style="animation-delay:2.42s"/>
+    <path d="M 0,0 Q 10.3,-10.7 32.2,0 Q 10.3,10.7 0,0 Z" class="leaf" transform="translate(472.4,-304.8) rotate(39.5)" style="animation-delay:2.81s"/>
+    <path d="M 0,0 Q 10.1,-9.6 31.7,0 Q 10.1,9.6 0,0 Z" class="leaf" transform="translate(521.7,-370.3) rotate(10.0)" style="animation-delay:3.02s"/>
+    <path d="M 0,0 Q 10.7,-12.0 33.5,0 Q 10.7,12.0 0,0 Z" class="leaf" transform="translate(524.3,-348.6) rotate(-68.6)" style="animation-delay:3.26s"/>
+    <path d="M 0,0 Q 10.6,-11.5 33.1,0 Q 10.6,11.5 0,0 Z" class="leaf" transform="translate(526.9,-354.5) rotate(-13.8)" style="animation-delay:3.30s"/>
+    <path d="M 0,0 Q 8.3,-10.6 25.9,0 Q 8.3,10.6 0,0 Z" class="leaf" transform="translate(1189.2,229.8) rotate(157.3)" style="animation-delay:0.23s"/>
+    <path d="M 0,0 Q 7.9,-11.3 24.8,0 Q 7.9,11.3 0,0 Z" class="leaf" transform="translate(1176.8,363.5) rotate(25.1)" style="animation-delay:0.47s"/>
+    <path d="M 0,0 Q 9.4,-8.5 29.3,0 Q 9.4,8.5 0,0 Z" class="leaf" transform="translate(1146.2,378.6) rotate(239.0)" style="animation-delay:0.57s"/>
+    <path d="M 0,0 Q 6.8,-11.1 21.3,0 Q 6.8,11.1 0,0 Z" class="leaf" transform="translate(1134.8,368.2) rotate(-81.6)" style="animation-delay:0.61s"/>
+    <path d="M 0,0 Q 10.2,-9.9 31.9,0 Q 10.2,9.9 0,0 Z" class="leaf" transform="translate(1142.3,346.5) rotate(18.5)" style="animation-delay:0.71s"/>
+    <path d="M 0,0 Q 6.9,-11.6 21.6,0 Q 6.9,11.6 0,0 Z" class="leaf" transform="translate(1152.1,359.4) rotate(227.1)" style="animation-delay:0.90s"/>
+    <path d="M 0,0 Q 7.3,-11.9 22.8,0 Q 7.3,11.9 0,0 Z" class="leaf" transform="translate(291.9,922.3) rotate(-23.9)" style="animation-delay:3.29s"/>
+    <path d="M 0,0 Q 10.5,-9.0 32.8,0 Q 10.5,9.0 0,0 Z" class="leaf" transform="translate(2.9,1019.2) rotate(210.4)" style="animation-delay:1.37s"/>
+    <path d="M 0,0 Q 8.4,-10.6 26.3,0 Q 8.4,10.6 0,0 Z" class="leaf" transform="translate(-21.5,1097.6) rotate(33.2)" style="animation-delay:1.41s"/>
+    <path d="M 0,0 Q 6.6,-11.1 20.7,0 Q 6.6,11.1 0,0 Z" class="leaf" transform="translate(-133.6,1306.1) rotate(57.1)" style="animation-delay:1.50s"/>
+    <path d="M 0,0 Q 10.1,-12.2 31.6,0 Q 10.1,12.2 0,0 Z" class="leaf" transform="translate(-120.9,1280.1) rotate(59.8)" style="animation-delay:1.59s"/>
+    <path d="M 0,0 Q 8.7,-8.7 27.2,0 Q 8.7,8.7 0,0 Z" class="leaf" transform="translate(-107.7,1300.3) rotate(125.9)" style="animation-delay:1.64s"/>
+    <path d="M 0,0 Q 9.2,-9.4 28.9,0 Q 9.2,9.4 0,0 Z" class="leaf" transform="translate(-114.9,1321.2) rotate(60.9)" style="animation-delay:1.68s"/>
+    <path d="M 0,0 Q 9.5,-13.1 29.6,0 Q 9.5,13.1 0,0 Z" class="leaf" transform="translate(-133.7,1327.7) rotate(209.0)" style="animation-delay:1.73s"/>
+    <path d="M 0,0 Q 6.8,-11.6 21.4,0 Q 6.8,11.6 0,0 Z" class="leaf" transform="translate(-149.9,1302.2) rotate(-29.1)" style="animation-delay:1.82s"/>
+    <path d="M 0,0 Q 9.9,-12.8 30.9,0 Q 9.9,12.8 0,0 Z" class="leaf" transform="translate(-124.2,1304.0) rotate(15.5)" style="animation-delay:1.95s"/>
+    <path d="M 0,0 Q 7.1,-10.3 22.1,0 Q 7.1,10.3 0,0 Z" class="leaf" transform="translate(-128.0,1310.6) rotate(72.7)" style="animation-delay:2.00s"/>
+    <path d="M 0,0 Q 8.3,-11.4 25.9,0 Q 8.3,11.4 0,0 Z" class="leaf" transform="translate(-135.5,1307.5) rotate(-176.4)" style="animation-delay:2.09s"/>
+    <path d="M 0,0 Q 6.8,-10.9 21.1,0 Q 6.8,10.9 0,0 Z" class="leaf" transform="translate(1410.6,1100.4) rotate(229.2)" style="animation-delay:2.24s"/>
+    <path d="M 0,0 Q 7.6,-8.2 23.9,0 Q 7.6,8.2 0,0 Z" class="leaf" transform="translate(1220.7,1275.0) rotate(194.2)" style="animation-delay:2.50s"/>
+    <path d="M 0,0 Q 8.7,-8.8 27.3,0 Q 8.7,8.8 0,0 Z" class="leaf" transform="translate(-70.5,846.1) rotate(76.4)" style="animation-delay:0.97s"/>
+    <path d="M 0,0 Q 7.7,-8.4 24.0,0 Q 7.7,8.4 0,0 Z" class="leaf" transform="translate(-200.5,1098.2) rotate(-167.3)" style="animation-delay:1.15s"/>
+    <path d="M 0,0 Q 7.7,-11.0 24.2,0 Q 7.7,11.0 0,0 Z" class="leaf" transform="translate(-176.6,1100.3) rotate(-65.3)" style="animation-delay:1.20s"/>
+    <path d="M 0,0 Q 6.5,-9.6 20.4,0 Q 6.5,9.6 0,0 Z" class="leaf" transform="translate(-189.5,1142.9) rotate(236.2)" style="animation-delay:1.33s"/>
+    <path d="M 0,0 Q 6.8,-10.8 21.4,0 Q 6.8,10.8 0,0 Z" class="leaf" transform="translate(-202.5,1118.6) rotate(-16.8)" style="animation-delay:1.42s"/>
+    <path d="M 0,0 Q 6.9,-11.2 21.6,0 Q 6.9,11.2 0,0 Z" class="leaf" transform="translate(-192.3,1111.2) rotate(-110.2)" style="animation-delay:1.47s"/>
+    <path d="M 0,0 Q 7.1,-11.6 22.3,0 Q 7.1,11.6 0,0 Z" class="leaf" transform="translate(-179.5,1123.0) rotate(7.2)" style="animation-delay:1.56s"/>
+    <path d="M 0,0 Q 8.3,-11.5 26.0,0 Q 8.3,11.5 0,0 Z" class="leaf" transform="translate(-12.3,123.1) rotate(189.2)" style="animation-delay:2.19s"/>
+    <path d="M 0,0 Q 9.3,-10.3 29.0,0 Q 9.3,10.3 0,0 Z" class="leaf" transform="translate(-163.5,174.8) rotate(124.4)" style="animation-delay:2.28s"/>
+    <path d="M 0,0 Q 10.3,-11.3 32.3,0 Q 10.3,11.3 0,0 Z" class="leaf" transform="translate(-149.5,148.7) rotate(-118.4)" style="animation-delay:2.33s"/>
+    <path d="M 0,0 Q 10.0,-12.3 31.2,0 Q 10.0,12.3 0,0 Z" class="leaf" transform="translate(-138.6,163.5) rotate(3.9)" style="animation-delay:2.38s"/>
+    <path d="M 0,0 Q 9.2,-12.0 28.8,0 Q 9.2,12.0 0,0 Z" class="leaf" transform="translate(-139.0,180.4) rotate(36.1)" style="animation-delay:2.42s"/>
+    <path d="M 0,0 Q 8.6,-10.8 26.8,0 Q 8.6,10.8 0,0 Z" class="leaf" transform="translate(-148.9,192.4) rotate(57.0)" style="animation-delay:2.47s"/>
+    <path d="M 0,0 Q 9.4,-9.2 29.3,0 Q 9.4,9.2 0,0 Z" class="leaf" transform="translate(-162.6,195.4) rotate(238.8)" style="animation-delay:2.52s"/>
+    <path d="M 0,0 Q 7.9,-10.7 24.6,0 Q 7.9,10.7 0,0 Z" class="leaf" transform="translate(-174.0,189.8) rotate(-84.5)" style="animation-delay:2.57s"/>
+    <path d="M 0,0 Q 10.2,-10.7 31.9,0 Q 10.2,10.7 0,0 Z" class="leaf" transform="translate(-176.4,170.2) rotate(-15.2)" style="animation-delay:2.66s"/>
+    <path d="M 0,0 Q 9.1,-8.9 28.5,0 Q 9.1,8.9 0,0 Z" class="leaf" transform="translate(-169.7,165.3) rotate(-88.1)" style="animation-delay:2.71s"/>
+    <path d="M 0,0 Q 9.8,-8.9 30.7,0 Q 9.8,8.9 0,0 Z" class="leaf" transform="translate(-159.0,174.0) rotate(29.9)" style="animation-delay:2.85s"/>
+    <path d="M 0,0 Q 9.6,-10.6 29.9,0 Q 9.6,10.6 0,0 Z" class="leaf" transform="translate(1270.0,220.8) rotate(53.0)" style="animation-delay:0.54s"/>
+    <path d="M 0,0 Q 8.6,-13.5 26.8,0 Q 8.6,13.5 0,0 Z" class="leaf" transform="translate(1224.7,286.2) rotate(55.2)" style="animation-delay:0.58s"/>
+    <path d="M 0,0 Q 8.6,-12.9 26.9,0 Q 8.6,12.9 0,0 Z" class="leaf" transform="translate(1139.3,398.4) rotate(177.4)" style="animation-delay:0.63s"/>
+    <path d="M 0,0 Q 8.8,-13.0 27.5,0 Q 8.8,13.0 0,0 Z" class="leaf" transform="translate(1137.7,370.1) rotate(-31.7)" style="animation-delay:0.67s"/>
+    <path d="M 0,0 Q 10.0,-13.3 31.2,0 Q 10.0,13.3 0,0 Z" class="leaf" transform="translate(1163.1,401.0) rotate(2.7)" style="animation-delay:0.76s"/>
+    <path d="M 0,0 Q 8.2,-12.2 25.6,0 Q 8.2,12.2 0,0 Z" class="leaf" transform="translate(1151.5,416.4) rotate(76.9)" style="animation-delay:0.81s"/>
+    <path d="M 0,0 Q 7.9,-9.6 24.8,0 Q 7.9,9.6 0,0 Z" class="leaf" transform="translate(1123.4,405.7) rotate(-185.8)" style="animation-delay:0.90s"/>
+    <path d="M 0,0 Q 10.9,-12.1 34.0,0 Q 10.9,12.1 0,0 Z" class="leaf" transform="translate(1145.4,389.4) rotate(-43.2)" style="animation-delay:1.03s"/>
+    <path d="M 0,0 Q 6.7,-10.5 21.0,0 Q 6.7,10.5 0,0 Z" class="leaf" transform="translate(1532.3,563.9) rotate(-201.9)" style="animation-delay:3.42s"/>
+    </g>
+  </svg>
+</body>
+</html>

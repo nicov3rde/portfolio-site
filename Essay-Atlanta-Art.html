@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #080808; -webkit-font-smoothing: antialiased; }
+    ::selection { background: #00cc00; color: #000; }
+    a { color: #00cc00; text-decoration: none; }
+    a:hover { color: #33dd33; }
+  </style>
+</helmet>
+
+<div style="background:#080808;color:#f2f2f0;font-family:'Inter',sans-serif;min-height:100vh">
+  <header style="position:sticky;top:0;z-index:20;background:rgba(8,8,8,0.9);backdrop-filter:blur(10px);border-bottom:1px solid #1e1e1e;padding:22px clamp(20px,4vw,64px)">
+    <a href="index.html#writing" style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(242,242,240,0.6);font-weight:600">← All Writing</a>
+  </header>
+
+  <article style="padding:70px clamp(20px,4vw,64px) 120px">
+    <div style="max-width:720px;margin:0 auto">
+      <p style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,204,0,0.75);font-weight:600;margin:0 0 16px">{{ essay.date }}</p>
+      <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,6vw,4rem);line-height:1;text-transform:uppercase;margin:0 0 28px;color:#f2f2f0">{{ essay.title }}</h1>
+      <p style="font-size:16px;line-height:1.75;color:#c9c9c7;margin:0 0 28px">{{ essay.excerpt }}</p>
+      <div style="font-size:15px;line-height:1.75;color:#c9c9c7;display:flex;flex-direction:column;gap:20px">
+        <p style="margin:0">While walking in Atlanta about a month ago, I witnessed a man spray-painting a building on Auburn Ave. He was working on a mural commissioned by the people who owned the building, displaying his name and some other graphics that the business had desired. I stopped to talk to this man, and he taught me about the differences between street art and graffiti. Through my conversation with this man, I realized that graffiti is more than just paint on a wall, it is a raw and unfiltered form of artistic expression that stands in contrast to commissioned street art. While murals are beautiful, they often lack the spontaneity and risk that give graffiti its power. In a city like Atlanta, where both forms of art coexist, it's important to recognize the deeper meaning behind graffiti and the message it carries despite efforts to erase it.</p>
+        <p style="margin:0">Graffiti is defined by Webster's Dictionary as "unauthorized writing or drawing on a public surface." Even in its most simple definition, graffiti exudes a certain power and energy because it draws its existence from being illegal. Graffiti all over our streets is the most raw and definitive proof of art that we can find because it is not allowed. When people must risk their safety and well-being to create art, it gives said art all the more authority because it is worth more than the risk being taken. Graffiti is self-expression, the art for the people by the people. Even if what is being written may not strike meaning or truth in the people who read it, it may be only a made-up name that people can spot across the city, it still proves the lengths people go to just to create art. One of the most recognizable graffiti spots in Atlanta is Krog Street Tunnel, a place where graffiti artists are free to work and create art without having to fear legal repercussions. Although this takes away some of the allure since it is technically allowed, it still stands as a witness to the complexity and care that goes into creating graffiti.</p>
+        <p style="margin:0">On the other hand we have street art and murals. Atlanta is littered with street art, such as the Outkast mural in Little Five Points, to the John Lewis Freedom Mural near GSU. Street art is a great way to provide opportunities for artists, all while making the city more beautiful and culturally rich. According to the AJC, "Atlanta is home to over 700 street murals, making it one of the top US cities…" This is great for Atlanta because it provides us with sophisticated beauty that can be enjoyed by everyone in different ways. Street art is something that everyone can appreciate, because it makes the city more beautiful. On the other side of the coin many people look down on graffiti, thinking that it "makes the city ugly" or causes harm to businesses. This is not true though, because when you look at art over the ages, it is used as a platform to say how you feel, make a statement, or just show how you view something. Art has always been used as an act of rebellion and protest, one of the few ways someone small can have a profound impact. This still stands true today in the graffiti seen across Atlanta.</p>
+        <p style="margin:0">When I was speaking to the man painting he bestowed this information to me when he said "in 2025 I want to see more people getting inspired by the real stuff, not just the street art." This really stuck to me coming from a graffiti artist himself because it just shows the respect that the community has for each other and their craft. This is what I took away the most from the conversation that I had with the artist that day: we have to truly appreciate all types of art, legal and illegal, because the risk that is being taken to create this art can also elevate it to a new level of beauty.</p>
+      </div>
+    </div>
+  </article>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  essay = {
+    title: "The True Art of Atlanta",
+    date: "2025",
+    excerpt: "",
+  };
+  renderVals() { return { essay: this.essay }; }
+}
+
+</script>
+</body>
+</html>

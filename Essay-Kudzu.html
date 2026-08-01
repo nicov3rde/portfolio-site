@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #080808; -webkit-font-smoothing: antialiased; }
+    ::selection { background: #00cc00; color: #000; }
+    a { color: #00cc00; text-decoration: none; }
+    a:hover { color: #33dd33; }
+  </style>
+</helmet>
+
+<div style="background:#080808;color:#f2f2f0;font-family:'Inter',sans-serif;min-height:100vh">
+  <header style="position:sticky;top:0;z-index:20;background:rgba(8,8,8,0.9);backdrop-filter:blur(10px);border-bottom:1px solid #1e1e1e;padding:22px clamp(20px,4vw,64px)">
+    <a href="index.html#writing" style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(242,242,240,0.6);font-weight:600">&#8592; All Writing</a>
+  </header>
+
+  <article style="padding:70px clamp(20px,4vw,64px) 120px">
+    <div style="max-width:720px;margin:0 auto">
+      <p style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,204,0,0.75);font-weight:600;margin:0 0 16px">{{ essay.date }}</p>
+      <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,6vw,4rem);line-height:1;text-transform:uppercase;margin:0 0 28px;color:#f2f2f0">{{ essay.title }}</h1>
+      <p style="font-size:16px;line-height:1.75;color:#c9c9c7;margin:0 0 28px">{{ essay.excerpt }}</p>
+      <div style="font-size:15px;line-height:1.75;color:#c9c9c7;display:flex;flex-direction:column;gap:20px">
+        <p style="margin:0">My perception failed me upon its prerogative. It could not see me, yet its wires walked across the floor right to my feet.</p>
+        <p style="margin:0">I suppose I had been here for a while. Not because I couldn't leave, but it was only a matter of time before someone else joined me.</p>
+        <p style="margin:0">I did not mind it at first. I stood there unmoving. They were cute in a way. I knew I could free myself. I grew cozy in its embrace. All it took was one step.</p>
+        <p style="margin:0">It walked its way up my leg like it knew me. I allowed the advance. It was just ivy.</p>
+        <p style="margin:0">Soon I felt the vine on my chest, the leaves cast a shadow and chills came over my body, yet my arms were still free. I could rip off the vines, but when I tried to step, my feet didn't.</p>
+        <p style="margin:0">It tickled when they touched my armpit. The ivy joined its other half on my shoulder, tangling and wrapping endlessly, going down and up and braiding into itself. I never knew vines grew down.</p>
+        <p style="margin:0">When it reached my hands, my back relaxed, my spine decompressed. The vines were holding me. Yet I could still see. I could still yell for help if need be.</p>
+        <p style="margin:0">We had grown together, me and the vine. The vine. Me. Always growing, always seeking more, climbing to the light of the sun.</p>
+        <p style="margin:0">My jaw relaxed. No longer did I need to hold it open. The ivy helped me. I had the vines here for me.</p>
+        <p style="margin:0">Out of the corner of my eye I saw green, dark green, gray, and then black.</p>
+        <p style="margin:0">I tried to move, to shake, to squirm, but it was futile. Then came a feeling, distant at first, then it grew into fear so immense I felt all throughout my very soul.</p>
+        <p style="margin:0">There were no screams. There was no time. The vines took over.</p>
+        <p style="margin:0">And then there was nothing.</p>
+      </div>
+    </div>
+  </article>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  essay = {
+    title: "Kudzu",
+    date: "Oct 28, 2025",
+    excerpt: "I guess I noticed when it grabbed my foot, although I had seen it much before. Squeezing me, growing tighter by the day.",
+  };
+  renderVals() { return { essay: this.essay }; }
+}
+
+</script>
+</body>
+</html>

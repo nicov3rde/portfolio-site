@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #080808; -webkit-font-smoothing: antialiased; }
+    ::selection { background: #00cc00; color: #000; }
+    a { color: #00cc00; text-decoration: none; }
+    a:hover { color: #33dd33; }
+  </style>
+</helmet>
+
+<div style="background:#080808;color:#f2f2f0;font-family:'Inter',sans-serif;min-height:100vh">
+  <header style="position:sticky;top:0;z-index:20;background:rgba(8,8,8,0.9);backdrop-filter:blur(10px);border-bottom:1px solid #1e1e1e;padding:22px clamp(20px,4vw,64px)">
+    <a href="index.html#hero" style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(242,242,240,0.6);font-weight:600">&#8592; Back to Nico Verde</a>
+  </header>
+
+  <section style="padding:70px clamp(20px,4vw,64px) 0">
+    <div style="max-width:1300px;margin:0 auto">
+      <p style="font-size:12px;letter-spacing:0.25em;text-transform:uppercase;color:rgba(0,204,0,0.6);margin:0 0 14px;font-weight:600">Behind The Lens</p>
+      <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,6vw,4.5rem);text-transform:uppercase;margin:0 0 50px;color:#f2f2f0">Gallery &mdash; Art &amp; Photos</h1>
+      <div style="columns:4 220px;column-gap:8px">
+        <sc-for list="{{ galleryImages }}" as="g" hint-placeholder-count="11">
+          <div style="break-inside:avoid;margin-bottom:8px">
+            <img src="{{ g.src }}" alt="Gallery" style="width:100%;height:auto;display:block">
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <footer style="padding:60px clamp(20px,4vw,64px);border-top:1px solid #1e1e1e;margin-top:80px;text-align:center">
+    <a href="index.html#hero" style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(242,242,240,0.6);font-weight:600">&#8592; Back to Nico Verde</a>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  galleryImages = [
+    { src: "public/gallery/new-1.png" }, { src: "public/gallery/new-2.png" }, { src: "public/gallery/new-3.png" },
+    { src: "public/gallery/new-4.png" }, { src: "public/gallery/new-5.png" }, { src: "public/gallery/new-6.png" },
+    { src: "public/gallery/new-7.png" }, { src: "public/gallery/new-8.png" }, { src: "public/gallery/new-9.png" },
+    { src: "public/gallery/new-10.png" }, { src: "public/gallery/new-11.png" },
+  ];
+
+  renderVals() {
+    return { galleryImages: this.galleryImages };
+  }
+}
+
+</script>
+</body>
+</html>

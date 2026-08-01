@@ -1,0 +1,15 @@
+# OS junk
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Editor folders
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Vercel
+.vercel

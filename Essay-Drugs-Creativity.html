@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #080808; -webkit-font-smoothing: antialiased; }
+    ::selection { background: #00cc00; color: #000; }
+    a { color: #00cc00; text-decoration: none; }
+    a:hover { color: #33dd33; }
+  </style>
+</helmet>
+
+<div style="background:#080808;color:#f2f2f0;font-family:'Inter',sans-serif;min-height:100vh">
+  <header style="position:sticky;top:0;z-index:20;background:rgba(8,8,8,0.9);backdrop-filter:blur(10px);border-bottom:1px solid #1e1e1e;padding:22px clamp(20px,4vw,64px)">
+    <a href="index.html#writing" style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(242,242,240,0.6);font-weight:600">&#8592; All Writing</a>
+  </header>
+
+  <article style="padding:70px clamp(20px,4vw,64px) 120px">
+    <div style="max-width:720px;margin:0 auto">
+      <p style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,204,0,0.75);font-weight:600;margin:0 0 16px">{{ essay.date }}</p>
+      <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,6vw,4rem);line-height:1;text-transform:uppercase;margin:0 0 28px;color:#f2f2f0">{{ essay.title }}</h1>
+      <p style="font-size:16px;line-height:1.75;color:#c9c9c7;margin:0 0 28px">{{ essay.excerpt }}</p>
+      <div style="font-size:15px;line-height:1.75;color:#c9c9c7;display:flex;flex-direction:column;gap:20px">
+        <p style="margin:0">Throughout history, illicit substances have shaped artistic vision in profound ways. From opium-fueled Paris salons to the psychedelic revolution of the 1960s, artists have sought chemical pathways to innovation. Do altered states enhance creative thinking and open new artistic possibilities? Or were drugs merely present in these artists' lives by chance, ultimately becoming their downfall? By exploring these stories, we can better understand the complex relationship between substances and artistic expression.</p>
+        <p style="margin:0">Drugs can unlock creative potential across various artistic media. Keith Haring, a pioneer of the graffiti movement, experimented with LSD, explaining, "I was trying to break through the barrier of conscious thought. Acid helped me do that." For Haring, psychedelics provided a way to disrupt conventional thinking patterns. LSD produces intense visual hallucinations and profound shifts in consciousness that can offer fresh perspectives, allowing artists to see aspects of their work and themselves previously hidden from view.</p>
+        <p style="margin:0">Ernst Fuchs, founder of the Vienna School of Fantastic Realism, credited psilocybin mushrooms as highly influential to his artistic development. He once remarked, "There are truths in the mushroom state that no logic can deny, only the brush can explain." This influence is evident in his work, complex compositions featuring human-like figures interacting against backgrounds of vibrant, contrasting colors, reminiscent of hallucinatory visions. Without his mushroom experiences, Fuchs might never have created these distinctive paintings. The mind operates through intricate mechanisms, and substances can sometimes provide access to otherwise unreachable mental territories.</p>
+        <p style="margin:0">However, we must acknowledge the potential dangers that accompany drug use. Many artists turned to substances to escape painful realities, developing dependencies with devastating consequences. Vincent van Gogh, creator of "Starry Night," struggled with emotional turmoil and often relied on substances for relief. In the 19th century, absinthe, a combination of alcohol and thujone with hallucinogenic properties, was his drink of choice, especially during manic episodes. The influence of absinthe is reflected in his later paintings, though van Gogh himself admitted producing better work during periods of sobriety.</p>
+        <p style="margin:0">Jean-Michel Basquiat presents another cautionary tale. Beginning in the New York graffiti scene, Basquiat developed a raw, expressive style that commented powerfully on race and identity. As his fame grew, so did his dependence on heroin, which he used as a coping mechanism within his social circles. Though Basquiat rarely discussed his drug use publicly, its destructive impact was undeniable, culminating in his fatal overdose in 1988 at just 27 years old. Such tragedies remind us of the real dangers that can accompany substance use.</p>
+        <p style="margin:0">The relationship between drugs and creativity remains complex. While substances may offer access to unusual mental states and novel perspectives, responsible use is crucial to avoid the severe consequences that have claimed too many artistic lives. Throughout history, we've seen this pattern repeated, from Haring's productive use of LSD to Basquiat's tragic end from heroin.</p>
+        <p style="margin:0">Drugs will always be present in the lives of visionaries, the creatives, and the tortured, just as the groundbreaking pieces of work they create live there as well. Maybe the act of seeing into new worlds and reflecting life in the most robust ways is truly the spirit of the artist, not the anesthetics that catalyze it.</p>
+      </div>
+    </div>
+  </article>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  essay = {
+    title: "Drugs: Gateway to Misery or Portal to Unseen Creativity?",
+    date: "2025",
+    excerpt: "From opium-fueled Paris salons to the psychedelic revolution of the 1960s, artists have sought chemical pathways to innovation.",
+  };
+  renderVals() { return { essay: this.essay }; }
+}
+
+</script>
+</body>
+</html>

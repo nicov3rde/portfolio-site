@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #080808; -webkit-font-smoothing: antialiased; }
+    ::selection { background: #00cc00; color: #000; }
+    a { color: #00cc00; text-decoration: none; }
+    a:hover { color: #33dd33; }
+  </style>
+</helmet>
+
+<div style="background:#080808;color:#f2f2f0;font-family:'Inter',sans-serif;min-height:100vh">
+  <header style="position:sticky;top:0;z-index:20;background:rgba(8,8,8,0.9);backdrop-filter:blur(10px);border-bottom:1px solid #1e1e1e;padding:22px clamp(20px,4vw,64px)">
+    <a href="index.html#writing" style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(242,242,240,0.6);font-weight:600">&#8592; All Writing</a>
+  </header>
+
+  <article style="padding:70px clamp(20px,4vw,64px) 120px">
+    <div style="max-width:720px;margin:0 auto">
+      <p style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,204,0,0.75);font-weight:600;margin:0 0 16px">{{ essay.date }}</p>
+      <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,6vw,4rem);line-height:1;text-transform:uppercase;margin:0 0 28px;color:#f2f2f0">{{ essay.title }}</h1>
+      <p style="font-size:16px;line-height:1.75;color:#c9c9c7;margin:0 0 28px">{{ essay.excerpt }}</p>
+      <div style="font-size:15px;line-height:1.75;color:#c9c9c7;display:flex;flex-direction:column;gap:20px">
+        <p style="margin:0">Yet as much as we search we have never found definitive proof of it. Even though we haven't seen any life, I still believe we can prove the existence in other ways.</p>
+        <p style="margin:0">Life exists on a different plane from the one we exist on. That plane is time. In all of the time that the universe has existed, I believe that life has evolved before and will again. Although mankind's time on earth is limited, I take solace in knowing that life will evolve again. We ourselves are proof of that. We do not know how it happened, but somehow life was created on earth. This proves that life can be created from nothing. Since we have definitive proof that life can come to exist, I know eventually some other form of life will evolve again in another place. Somewhere far away, a long time ago but also millions of years forward, life has and will come back around. The universe is forever growing and has been for billions of years and it's not going to stop, so we know for certain that life will evolve again elsewhere given enough time. The chances are very slim, but if time goes on forever it has to happen eventually. Of course, this life will never be the same as the life that's on earth. Otherworldly creatures that operate in ways we could never imagine. I hope these beings will be able to study the ways of the universe so that they can understand any messages that we put out during our time here. I can be certain that we are not the only instance of life existing across all time. I have no way of knowing what this life will be. I just know that it will exist.</p>
+        <p style="margin:0">Through this logic I believe that the human race can take comfort in the fact that although our time on earth is limited, the existence of life in the universe is not.</p>
+      </div>
+    </div>
+  </article>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  essay = {
+    title: "Are We Alone?",
+    date: "Feb 9, 2024",
+    excerpt: "All throughout mankind's existence we have looked to the stars for proof of other life out there in the universe.",
+  };
+  renderVals() { return { essay: this.essay }; }
+}
+
+</script>
+</body>
+</html>

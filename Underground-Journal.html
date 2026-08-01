@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="./image-slot.js"></script>
+  <script async src="//www.instagram.com/embed.js"></script>
+  <style>
+    body { margin: 0; background: #080808; -webkit-font-smoothing: antialiased; }
+    ::selection { background: #00cc00; color: #000; }
+    a { color: #00cc00; text-decoration: none; }
+    a:hover { color: #33dd33; }
+  </style>
+</helmet>
+
+<div style="background:#080808;color:#f2f2f0;font-family:'Inter',sans-serif;min-height:100vh">
+
+  <header style="position:sticky;top:0;z-index:20;background:rgba(8,8,8,0.9);backdrop-filter:blur(10px);border-bottom:1px solid #1e1e1e;padding:22px clamp(20px,4vw,64px)">
+    <a href="index.html#campaigns" style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(242,242,240,0.6);font-weight:600">&#8592; All Case Studies</a>
+  </header>
+
+  <section style="padding:70px clamp(20px,4vw,64px) 0">
+    <div style="max-width:1000px;margin:0 auto">
+      <p style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(0,204,0,0.75);font-weight:600;margin:0 0 18px">Growth &middot; Editorial Marketing</p>
+      <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,9vw,6.5rem);line-height:0.92;text-transform:uppercase;margin:0 0 20px">Underground Journal</h1>
+      <p style="font-size:clamp(15px,1.6vw,19px);color:#c9c9c7;line-height:1.6;max-width:640px;margin:0 0 28px">As Head of Marketing and then Director of External Affairs for Georgia State's Underground Journal, I ran marketing across three launches over four semesters, building a marketing team from scratch and growing submissions 507%.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px 20px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(242,242,240,0.45)">
+        <span>Role: Head of Marketing &#8594; Director of External Affairs</span>
+        <span>&middot;</span>
+        <span>4 Semesters</span>
+        <span>&middot;</span>
+        <span>Georgia State University</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- COVER + STATS -->
+  <section style="padding:32px clamp(20px,4vw,64px) 0">
+    <div style="max-width:1000px;margin:0 auto;display:flex;gap:40px;align-items:center;flex-wrap:wrap">
+      <div style="width:220px;flex-shrink:0">
+        <img src="public/underground_journal_cover.jpg" alt="Underground Journal" style="width:100%;height:auto;display:block"/>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:32px;flex:1;min-width:220px">
+        <sc-for list="{{ stats }}" as="stat" hint-placeholder-count="3">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:#00cc00">{{ stat.value }}</span>
+            <span style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(242,242,240,0.4)">{{ stat.label }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:80px clamp(20px,4vw,64px)">
+    <div style="max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:64px">
+
+      <sc-for list="{{ narrative }}" as="block" hint-placeholder-count="4">
+        <div>
+          <p style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#00cc00;font-weight:600;margin:0 0 14px">{{ block.label }}</p>
+          <p style="font-size:15px;color:rgba(242,242,240,0.7);margin:0;line-height:1.75">{{ block.body }}</p>
+        </div>
+      </sc-for>
+
+      <!-- THE THREE LAUNCHES -->
+      <div>
+        <p style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#00cc00;font-weight:600;margin:0 0 28px">The Three Launches</p>
+        <div style="display:flex;flex-direction:column;gap:40px">
+          <sc-for list="{{ launches }}" as="launch" hint-placeholder-count="3">
+            <div style="display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start">
+              <div style="width:140px;flex-shrink:0">
+                <image-slot id="{{ launch.id }}" style="width:100%;aspect-ratio:3/4" shape="rect" placeholder="{{ launch.placeholder }}"></image-slot>
+              </div>
+              <div style="flex:1;min-width:220px">
+                <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;text-transform:uppercase;margin:0 0 8px;color:#f2f2f0">{{ launch.title }}</h3>
+                <p style="font-size:14px;color:rgba(242,242,240,0.6);margin:0;line-height:1.65">{{ launch.body }}</p>
+                <sc-if value="{{ launch.url }}" hint-placeholder-val="{{ false }}">
+                  <a href="{{ launch.url }}" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:12px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;color:#00cc00">Read on itch.io &#8594;</a>
+                </sc-if>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div>
+        <p style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#00cc00;font-weight:600;margin:0 0 14px">The Execution</p>
+        <div style="display:flex;gap:14px;overflow-x:auto;padding-bottom:8px;-webkit-overflow-scrolling:touch">
+          <sc-for list="{{ videos }}" as="v" hint-placeholder-count="6">
+            <div style="flex-shrink:0;width:min(280px,80vw);zoom:0.65">
+              <div style="width:100%;min-width:326px">
+                <blockquote class="instagram-media" data-instgrm-permalink="{{ v.url }}" style="width:100%;margin:0"></blockquote>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer style="padding:60px clamp(20px,4vw,64px);border-top:1px solid #1e1e1e;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
+    <a href="LinkedOut.html" style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(242,242,240,0.6);font-weight:600">&#8592; LinkedOut</a>
+    <a href="index.html#campaigns" style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#00cc00;font-weight:600">See More Work &#8594;</a>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  stats = [
+    { value: "507%", label: "Growth in submissions" },
+    { value: "10", label: "Person marketing team built from 0" },
+    { value: "15+", label: "Events run, incl. 300+ person release parties" },
+  ];
+
+  narrative = [
+    {
+      label: "Context",
+      body: "When I joined, Underground Journal had no marketing function at all. Submissions were averaging around 50 an issue, and the journal was surviving on whoever happened to hear about it. I built the marketing team from the ground up and used it to turn a passive submission process into an active growth channel.",
+    },
+    {
+      label: "Strategy & Execution",
+      body: "Growth came from stacking channels, not one big idea. I ran direct outreach across 200+ classes to reach 2,000+ students, made submitting as low-friction as possible, and kept reminding people it was free and that their work had a real shot. I paired that with 15+ events, including release parties that drew 300+ people, to turn submitters and readers into repeat contributors. On the business side, I wrote grants, sold and produced ads, and secured sponsorships and institutional partnerships to fund it. I also rebuilt the journal's SEO from nothing, cleaning up on-page structure and using Search Console to track and fix indexing issues, which grew organic search traffic and put the journal's issues in front of students who weren't already in our network. I also led all the visual identity work: art acquisition, graphic design across every issue, and the logos and covers that gave each launch its own identity.",
+    },
+    {
+      label: "Team & Leadership",
+      body: "I built and led a marketing team of 10 across campaign strategy, budget, and partnerships, essentially running it like a growth team inside a student org: recruiting people, giving them ownership over a channel, and holding the whole thing to a submissions number every semester.",
+    },
+    {
+      label: "Results",
+      body: "Submissions grew 507%, from roughly 50 a semester to 250 to 300. The events series consistently pulled 300+ attendees, and the partner and sponsorship network grew alongside it. I stepped away after four semesters when the role stopped having room to grow further.",
+    },
+  ];
+
+  launches = [
+    { id: "uj-launch-1", title: "Launch 1 — Issue 15.1", placeholder: "Drop this issue's cover", body: "The first launch under a marketing team that hadn't existed before. Focus was building the outreach infrastructure: classroom visits, flyering, and the first release event.", url: null },
+    { id: "uj-launch-2", title: "Launch 2 — Issue 15.2", placeholder: "Drop this issue's cover", body: "Scaled the outreach playbook from launch 1 and added paid and sponsored support. Submissions and event turnout both grew significantly on the back of it.", url: "https://undergroundjournal.itch.io/underground-journal-152" },
+    { id: "uj-launch-3", title: "Launch 3 — Issue 16.1", placeholder: "Drop this issue's cover", body: "Took over the journal's full visual identity for this launch, designing the \"Underground\" masthead treatment and the back cover, alongside the biggest release party of the run.", url: "https://undergroundjournal.itch.io/underground-journal-161" },
+  ];
+
+  videos = [
+    { url: "https://www.instagram.com/reel/DFaqh35uT2V/?hl=en" },
+    { url: "https://www.instagram.com/reel/DDZ10ZlugNB/?hl=en" },
+    { url: "https://www.instagram.com/reel/DCHfV-HOCa9/?hl=en" },
+    { url: "https://www.instagram.com/reel/DA6lYJJy0Qg/?hl=en" },
+    { url: "https://www.instagram.com/reel/DPT_0OMDr3L/?hl=en" },
+    { url: "https://www.instagram.com/reel/DSVzowlDgxn/?hl=en" },
+  ];
+
+  reprocessEmbeds() {
+    if (window.instgrm && window.instgrm.Embeds) window.instgrm.Embeds.process();
+  }
+
+  componentDidMount() { this.reprocessEmbeds(); }
+  componentDidUpdate() { this.reprocessEmbeds(); }
+
+  renderVals() {
+    return { stats: this.stats, narrative: this.narrative, launches: this.launches, videos: this.videos };
+  }
+}
+
+</script>
+</body>
+</html>
