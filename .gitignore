@@ -16,3 +16,7 @@ $RECYCLE.BIN/
 
 .vercel
 .env*
+
+# Local-only backups of pre-optimization image originals (recoverable via git history too)
+public/_originals/
+public/gallery/_originals/

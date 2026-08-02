@@ -1,0 +1,33 @@
+# Nico Verde
+
+> Creative Manager. 10 years in content, 15M+ views. I make campaigns that sell, for companies moving fast enough to keep up. Based in Atlanta, GA.
+
+Nico Verde (Nicholas Crowell) is a Creative Manager working across video production, photography, marketing strategy, and content clipping. This site is his portfolio: recent campaigns, case studies, a photo/art gallery, essays, and booking info.
+
+Note for automated agents: this site's page content is rendered client-side by a small JavaScript templating runtime. A JS-executing crawler will see the full content described below; a plain HTTP fetch will only see each page's <title>, meta description, and JSON-LD.
+
+## Pages
+
+- [Homepage](https://nicoverde.house/): Hero intro, recent campaigns (Verde House, LinkedOut, Underground Journal), content categories, skills, and about section.
+- [Book Me](https://nicoverde.house/Book-Me.html): Rates and services for video production, photography, clipping, and consulting.
+- [Gallery](https://nicoverde.house/Gallery.html): Photography and visual art gallery.
+- [Writing](https://nicoverde.house/Writing.html): Index of essays and guides.
+- [Verde House](https://nicoverde.house/Verde-House.html): Case study on building the Verde House event brand and selling out a 350+ person launch party.
+- [LinkedOut](https://nicoverde.house/LinkedOut.html): Case study on an AI-powered LinkedIn parody app built and pitched in 12 hours, 1st place at HackLanta 2026.
+- [Underground Journal](https://nicoverde.house/Underground-Journal.html): Case study on building a marketing team from scratch and growing submissions 507% for Georgia State's Underground Journal.
+- [Campaigns, Coming Soon](https://nicoverde.house/Campaigns-Coming-Soon.html): Work in progress and past campaigns not yet added to the main portfolio.
+
+## Essays
+
+- [Instagram Marketing Guide](https://nicoverde.house/Essay-Instagram-Guide.html)
+- [The True Art of Atlanta](https://nicoverde.house/Essay-Atlanta-Art.html)
+- [Drugs: Gateway to Misery or Portal to Unseen Creativity?](https://nicoverde.house/Essay-Drugs-Creativity.html)
+- [Kudzu](https://nicoverde.house/Essay-Kudzu.html)
+- [The Relationship Between AI and Coursework](https://nicoverde.house/Essay-AI-Coursework.html)
+- [Are We Alone?](https://nicoverde.house/Essay-Are-We-Alone.html)
+
+## Contact
+
+- Email: nicov3rde@gmail.com
+- Instagram: https://www.instagram.com/nicov3rde
+- LinkedIn: https://www.linkedin.com/in/nicocrowell/

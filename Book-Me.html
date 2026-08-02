@@ -1,8 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book Nico Verde - Rates & Services</title>
+<meta name="description" content="Straightforward pricing for video production, photography, clipping, and marketing consulting. Book a project with Nico Verde.">
+<link rel="canonical" href="https://nicoverde.house/Book-Me.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Book Nico Verde - Rates & Services">
+<meta property="og:description" content="Straightforward pricing for video production, photography, clipping, and marketing consulting. Book a project with Nico Verde.">
+<meta property="og:url" content="https://nicoverde.house/Book-Me.html">
+<meta property="og:image" content="https://nicoverde.house/public/headshot.jpg">
+<meta property="og:site_name" content="Nico Verde">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Book Nico Verde - Rates & Services">
+<meta name="twitter:description" content="Straightforward pricing for video production, photography, clipping, and marketing consulting. Book a project with Nico Verde.">
+<meta name="twitter:image" content="https://nicoverde.house/public/headshot.jpg">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -10,8 +23,9 @@
 
 <helmet>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    html, body { overflow-x: clip; max-width: 100%; }
     body { margin: 0; background: #080808; -webkit-font-smoothing: antialiased; }
     ::selection { background: #00cc00; color: #000; }
     a { color: #00cc00; text-decoration: none; }
@@ -19,15 +33,16 @@
   </style>
 </helmet>
 
-<div style="background:#080808;color:#f2f2f0;font-family:'Inter',sans-serif;min-height:100vh">
+<div style="background:#080808;color:#f2f2f0;font-family:'Space Mono',monospace;min-height:100vh;overflow-x:hidden">
   <header style="position:sticky;top:0;z-index:20;background:rgba(8,8,8,0.9);backdrop-filter:blur(10px);border-bottom:1px solid #1e1e1e;padding:22px clamp(20px,4vw,64px)">
-    <a href="index.html#hero" style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(242,242,240,0.6);font-weight:600">← Back to Nico Verde</a>
+    <a href="index.html#hero" style="display:inline-block;padding:15px 8px;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(242,242,240,0.6);font-weight:600;">← Back to Nico Verde</a>
   </header>
+  <main>
 
   <section style="padding:70px clamp(20px,4vw,64px) 0">
     <div style="max-width:1000px;margin:0 auto">
       <p style="font-size:12px;letter-spacing:0.25em;text-transform:uppercase;color:rgba(0,204,0,0.6);margin:0 0 14px;font-weight:600">Book Me</p>
-      <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,6vw,4.5rem);text-transform:uppercase;margin:0 0 20px;color:#f2f2f0">Rates &amp; Services</h1>
+      <h1 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(2.4rem,6vw,4.5rem);text-transform:uppercase;margin:0 0 20px;color:#f2f2f0">Rates &amp; Services</h1>
       <p style="font-size:14px;line-height:1.7;color:rgba(242,242,240,0.5);max-width:560px;margin:0 0 60px">Straightforward pricing for the work I actually do, built to plug into your go-to-market, not just fill a content calendar. Every launch is different, so these are starting points: reach out and we'll scope it to your GTM timeline.</p>
     </div>
   </section>
@@ -37,18 +52,18 @@
       <sc-for list="{{ serviceGroups }}" as="group" hint-placeholder-count="4">
         <div style="margin-bottom:64px">
           <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:24px;flex-wrap:wrap">
-            <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.5rem,3vw,2rem);text-transform:uppercase;margin:0;color:#f2f2f0">{{ group.label }}</h2>
+            <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(1.5rem,3vw,2rem);text-transform:uppercase;margin:0;color:#f2f2f0">{{ group.label }}</h2>
             <span style="font-size:12px;color:rgba(242,242,240,0.35)">{{ group.sub }}</span>
           </div>
           <div style="display:flex;flex-direction:column">
             <sc-for list="{{ group.items }}" as="item" hint-placeholder-count="3">
               <div style="padding:24px 0;border-top:1px solid #1e1e1e;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start">
                 <div style="flex:1;min-width:220px">
-                  <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;text-transform:uppercase;margin:0 0 6px;color:#f2f2f0;letter-spacing:0.01em">{{ item.title }}</h3>
+                  <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.3rem;text-transform:uppercase;margin:0 0 6px;color:#f2f2f0;letter-spacing:0.01em">{{ item.title }}</h3>
                   <p style="font-size:13px;line-height:1.6;color:rgba(242,242,240,0.5);margin:0;max-width:480px">{{ item.desc }}</p>
                 </div>
                 <div style="text-align:right;flex-shrink:0">
-                  <span style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:#00cc00;display:block;line-height:1">{{ item.price }}</span>
+                  <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.6rem;color:#00cc00;display:block;line-height:1">{{ item.price }}</span>
                   <span style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(242,242,240,0.3)">{{ item.unit }}</span>
                 </div>
               </div>
@@ -59,13 +74,14 @@
     </div>
   </section>
 
+  </main>
   <footer id="book" style="background:#0d0d0d;border-top:1px solid #1e1e1e;text-align:center;padding:80px clamp(20px,4vw,64px)">
     <p style="font-size:12px;letter-spacing:0.25em;text-transform:uppercase;color:rgba(0,204,0,0.6);margin:0 0 16px;font-weight:600">Ready When You Are</p>
-    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.6rem);text-transform:uppercase;margin:0 0 20px;color:#f2f2f0">Let's Build Something.</h2>
-    <p style="font-size:14px;color:rgba(242,242,240,0.5);max-width:440px;margin:0 auto 36px;line-height:1.6">Send me the details — launch date, deliverables, budget range — and I'll get back within 48 hours with a plan that fits your go-to-market.</p>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(2rem,5vw,3.6rem);text-transform:uppercase;margin:0 0 20px;color:#f2f2f0">Let's Build Something.</h2>
+    <p style="font-size:14px;color:rgba(242,242,240,0.5);max-width:440px;margin:0 auto 36px;line-height:1.6">Send me the details (launch date, deliverables, budget range) and I'll get back within 48 hours with a plan that fits your go-to-market.</p>
     <a href="mailto:nicov3rde@gmail.com?subject=Booking%20Inquiry" style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;font-weight:700;padding:16px 32px;background:#00cc00;color:#080808;border-radius:2px;display:inline-block">Email Me</a>
     <div style="margin-top:56px">
-      <a href="index.html#hero" style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(242,242,240,0.6);font-weight:600">← Back to Nico Verde</a>
+      <a href="index.html#hero" style="display:inline-block;padding:15px 8px;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(242,242,240,0.6);font-weight:600;">← Back to Nico Verde</a>
     </div>
   </footer>
 </div>
@@ -79,7 +95,7 @@ class Component extends DCLogic {
       sub: "Strategy calls, content audits, channel growth",
       items: [
         { title: "1-on-1 Strategy Call", desc: "60-minute deep dive on your go-to-market plan, platform mix, and what's holding growth back.", price: "$165", unit: "per session" },
-        { title: "Channel Audit", desc: "Full teardown of your existing content and GTM approach — what's working, what's not, and a written action plan.", price: "$400", unit: "flat rate" },
+        { title: "Channel Audit", desc: "Full teardown of your existing content and GTM approach: what's working, what's not, and a written action plan.", price: "$400", unit: "flat rate" },
         { title: "Ongoing Advisory", desc: "Monthly check-ins, launch calendar review, and async feedback on drafts as your GTM evolves.", price: "$800", unit: "per month" },
       ],
     },
@@ -89,15 +105,15 @@ class Component extends DCLogic {
       items: [
         { title: "Half-Day Shoot", desc: "Up to 4 hours on location. Camera, basic lighting kit, and audio included.", price: "$300", unit: "half day" },
         { title: "Full-Day Shoot", desc: "Up to 8 hours, single location. Camera, lighting, and audio included.", price: "$525", unit: "full day" },
-        { title: "Multi-Day Production", desc: "Travel, multi-location shoots. Rate covers crew day + gear — travel/lodging billed separately.", price: "$475", unit: "per day" },
+        { title: "Multi-Day Production", desc: "Travel, multi-location shoots. Rate covers crew day + gear; travel/lodging billed separately.", price: "$475", unit: "per day" },
       ],
     },
     {
       label: "Video Production",
       sub: "Shot, edited, and delivered",
       items: [
-        { title: "Long-Form / YouTube", desc: "Full shoot-to-edit for a long-form video, up to 15 minutes — built to anchor a product launch or GTM push. Includes color, sound design, two revision rounds.", price: "$1,200", unit: "per video" },
-        { title: "Brand / Ad Campaign", desc: "End-to-end launch campaign video — concept, shoot, edit, deliverables cut for every channel in your go-to-market mix.", price: "Starting at $2,350", unit: "per project" },
+        { title: "Long-Form / YouTube", desc: "Full shoot-to-edit for a long-form video, up to 15 minutes, built to anchor a product launch or GTM push. Includes color, sound design, two revision rounds.", price: "$1,200", unit: "per video" },
+        { title: "Brand / Ad Campaign", desc: "End-to-end launch campaign video: concept, shoot, edit, deliverables cut for every channel in your go-to-market mix.", price: "Starting at $2,350", unit: "per project" },
       ],
     },
     {
@@ -105,9 +121,9 @@ class Component extends DCLogic {
       sub: "Shot and edited vertical content, batched for launch cadence",
       items: [
         { title: "Single Reel", desc: "One vertical video, shot and edited. Includes one round of revisions.", price: "$200", unit: "per video" },
-        { title: "3-Pack", desc: "Three short-form videos from one shoot day — same location, batched content.", price: "$500", unit: "per bundle" },
+        { title: "3-Pack", desc: "Three short-form videos from one shoot day, same location, batched content.", price: "$500", unit: "per bundle" },
         { title: "5-Pack", desc: "Five short-form videos from one shoot day. Best value for regular posting cadence.", price: "$800", unit: "per bundle" },
-        { title: "10-Pack", desc: "Ten short-form videos across one or two shoot days — enough to carry a full launch cycle end to end.", price: "$1,500", unit: "per bundle" },
+        { title: "10-Pack", desc: "Ten short-form videos across one or two shoot days, enough to carry a full launch cycle end to end.", price: "$1,500", unit: "per bundle" },
       ],
     },
     {
@@ -125,14 +141,14 @@ class Component extends DCLogic {
       items: [
         { title: "Single Clip", desc: "One clip pulled and edited from footage or a stream/VOD you already have.", price: "$25", unit: "per clip" },
         { title: "Clip Bundle (10 pack)", desc: "Ten clips pulled and edited from your existing footage or content.", price: "$180", unit: "per bundle" },
-        { title: "Ongoing Stream/VOD Clipping", desc: "Standing coverage — clips pulled from every stream or upload as it drops.", price: "$400", unit: "per month" },
+        { title: "Ongoing Stream/VOD Clipping", desc: "Standing coverage: clips pulled from every stream or upload as it drops.", price: "$400", unit: "per month" },
       ],
     },
     {
       label: "Add-Ons",
       sub: "Extras that stack onto any package",
       items: [
-        { title: "Additional Revision Round", desc: "Past the included rounds — one more pass on edits.", price: "$100", unit: "per round" },
+        { title: "Additional Revision Round", desc: "Past the included rounds: one more pass on edits.", price: "$100", unit: "per round" },
         { title: "Rush Delivery", desc: "Turnaround in under 72 hours instead of standard timeline.", price: "+35%", unit: "of project rate" },
         { title: "Raw Footage Handoff", desc: "Full unedited footage delivered alongside final cut.", price: "$140", unit: "flat rate" },
       ],

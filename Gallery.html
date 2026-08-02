@@ -1,8 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gallery - Art & Photography by Nico Verde</title>
+<meta name="description" content="A gallery of photography and visual art by Nico Verde.">
+<link rel="canonical" href="https://nicoverde.house/Gallery.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gallery - Art & Photography by Nico Verde">
+<meta property="og:description" content="A gallery of photography and visual art by Nico Verde.">
+<meta property="og:url" content="https://nicoverde.house/Gallery.html">
+<meta property="og:image" content="https://nicoverde.house/public/gallery/new-1.jpg">
+<meta property="og:site_name" content="Nico Verde">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gallery - Art & Photography by Nico Verde">
+<meta name="twitter:description" content="A gallery of photography and visual art by Nico Verde.">
+<meta name="twitter:image" content="https://nicoverde.house/public/gallery/new-1.jpg">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -10,8 +23,9 @@
 
 <helmet>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    html, body { overflow-x: clip; max-width: 100%; }
     body { margin: 0; background: #080808; -webkit-font-smoothing: antialiased; }
     ::selection { background: #00cc00; color: #000; }
     a { color: #00cc00; text-decoration: none; }
@@ -19,27 +33,29 @@
   </style>
 </helmet>
 
-<div style="background:#080808;color:#f2f2f0;font-family:'Inter',sans-serif;min-height:100vh">
+<div style="background:#080808;color:#f2f2f0;font-family:'Space Mono',monospace;min-height:100vh;overflow-x:hidden">
   <header style="position:sticky;top:0;z-index:20;background:rgba(8,8,8,0.9);backdrop-filter:blur(10px);border-bottom:1px solid #1e1e1e;padding:22px clamp(20px,4vw,64px)">
-    <a href="index.html#hero" style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(242,242,240,0.6);font-weight:600">&#8592; Back to Nico Verde</a>
+    <a href="index.html#hero" style="display:inline-block;padding:15px 8px;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(242,242,240,0.6);font-weight:600;">&#8592; Back to Nico Verde</a>
   </header>
+  <main>
 
   <section style="padding:70px clamp(20px,4vw,64px) 0">
     <div style="max-width:1300px;margin:0 auto">
       <p style="font-size:12px;letter-spacing:0.25em;text-transform:uppercase;color:rgba(0,204,0,0.6);margin:0 0 14px;font-weight:600">Behind The Lens</p>
-      <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,6vw,4.5rem);text-transform:uppercase;margin:0 0 50px;color:#f2f2f0">Gallery &mdash; Art &amp; Photos</h1>
+      <h1 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(2.4rem,6vw,4.5rem);text-transform:uppercase;margin:0 0 50px;color:#f2f2f0">Gallery: Art &amp; Photos</h1>
       <div style="columns:4 220px;column-gap:8px">
         <sc-for list="{{ galleryImages }}" as="g" hint-placeholder-count="11">
           <div style="break-inside:avoid;margin-bottom:8px">
-            <img src="{{ g.src }}" alt="Gallery" style="width:100%;height:auto;display:block">
+            <img src="{{ g.src }}" alt="{{ g.alt }}" loading="lazy" style="width:100%;height:auto;display:block">
           </div>
         </sc-for>
       </div>
     </div>
   </section>
 
+  </main>
   <footer style="padding:60px clamp(20px,4vw,64px);border-top:1px solid #1e1e1e;margin-top:80px;text-align:center">
-    <a href="index.html#hero" style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(242,242,240,0.6);font-weight:600">&#8592; Back to Nico Verde</a>
+    <a href="index.html#hero" style="display:inline-block;padding:15px 8px;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(242,242,240,0.6);font-weight:600;">&#8592; Back to Nico Verde</a>
   </footer>
 </div>
 
@@ -47,10 +63,17 @@
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   galleryImages = [
-    { src: "public/gallery/new-1.png" }, { src: "public/gallery/new-2.png" }, { src: "public/gallery/new-3.png" },
-    { src: "public/gallery/new-4.png" }, { src: "public/gallery/new-5.png" }, { src: "public/gallery/new-6.png" },
-    { src: "public/gallery/new-7.png" }, { src: "public/gallery/new-8.png" }, { src: "public/gallery/new-9.png" },
-    { src: "public/gallery/new-10.png" }, { src: "public/gallery/new-11.png" },
+    { src: "public/gallery/new-1.jpg", alt: "Three friends posing for a fisheye-lens photo outdoors on a college campus lawn" },
+    { src: "public/gallery/new-2.jpg", alt: "Acrylic painting of a snow-capped mountain reflected in a lake at sunset, framed by pine trees" },
+    { src: "public/gallery/new-3.jpg", alt: "Model walking a fashion runway in a white ribbed dress, pearl necklace, and mint green fur coat" },
+    { src: "public/gallery/new-4.jpg", alt: "A woman sitting in a doorway decorated with doll figures, surrounded by potted cacti" },
+    { src: "public/gallery/new-5.jpg", alt: "A trellised garden with red autumn vines and stone steps, framed through an arched cutout in a wall" },
+    { src: "public/gallery/new-6.jpg", alt: "Black-and-white portrait of a smiling chef behind a restaurant kitchen counter" },
+    { src: "public/gallery/new-7.jpg", alt: "A hillside field of colorful wildflowers overlooking a forested mountain valley" },
+    { src: "public/gallery/new-8.jpg", alt: "Colorful painting of a stylized dragon with swirling green, red, and orange patterns" },
+    { src: "public/gallery/new-9.jpg", alt: "A bird flying over the red rock hoodoos of Bryce Canyon National Park" },
+    { src: "public/gallery/new-10.jpg", alt: "A person in a plaid jacket walking through a grassy meadow toward pine trees and mountains at dusk" },
+    { src: "public/gallery/new-11.jpg", alt: "A weathered Union St. sign in front of abandoned wooden buildings in a ghost town" },
   ];
 
   renderVals() {
